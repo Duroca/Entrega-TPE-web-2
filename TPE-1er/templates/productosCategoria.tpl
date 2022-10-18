@@ -83,7 +83,7 @@
                     <img src="../{$mueble->imagen}">
                 </div>
                 <div class="precio_producto">${$mueble->precio}</div>
-                <div class="button_comprar"><a href="detalles/{$mueble->id}">Comprar</a></div>
+                <div class="button_comprar"><a href="../detalles/{$mueble->id}">Comprar</a></div>
             </div>
         </div>
     {/foreach}

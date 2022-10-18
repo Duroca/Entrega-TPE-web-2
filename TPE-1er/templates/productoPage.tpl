@@ -61,6 +61,7 @@
 <div class="detalles_producto_page">
     <div>
         <h1>{$mueble->nombre}</h1>
+        <h3>({$mueble->nombre_cat})</h3>
         <img src="../{$mueble->imagen}">
     </div>
     

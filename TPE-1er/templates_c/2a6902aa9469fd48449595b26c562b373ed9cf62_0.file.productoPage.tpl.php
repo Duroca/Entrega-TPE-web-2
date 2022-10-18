@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-17 00:55:46
+/* Smarty version 4.2.1, created on 2022-10-17 20:16:42
   from 'C:\xampp\htdocs\TPE-1er\templates\productoPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c8bf29d4a82_61445692',
+  'unifunc' => 'content_634d9c0a761682_89831256',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2a6902aa9469fd48449595b26c562b373ed9cf62' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE-1er\\templates\\productoPage.tpl',
-      1 => 1665960945,
+      1 => 1666030601,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634c8bf29d4a82_61445692 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634d9c0a761682_89831256 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +89,8 @@ function content_634c8bf29d4a82_61445692 (Smarty_Internal_Template $_smarty_tpl)
     <div>
         <h1><?php echo $_smarty_tpl->tpl_vars['mueble']->value->nombre;?>
 </h1>
+        <h3>(<?php echo $_smarty_tpl->tpl_vars['mueble']->value->nombre_cat;?>
+)</h3>
         <img src="../<?php echo $_smarty_tpl->tpl_vars['mueble']->value->imagen;?>
 ">
     </div>

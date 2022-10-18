@@ -27,18 +27,21 @@ class TablaAdminController extends TablaController{
         $this->view->showAllProducts($inv,$cats);
     }
 
+    function guardarImagen($img){
+        //Guarda la imagen en la carpeta images
+        $file = new imgToSave($img);
+        $UrlImg = 'images/'.$img['name'];
+        $file->Save($UrlImg);
+    }
+
     function AddMueble(){
         $nombre = $_POST['tf_producto'];
         $precio = $_POST['tf_valor'];
         $descuento = $_POST['tf_descuento'];
         $id_categoria = $_POST['tf_categoria'];
         $img = $_FILES['tf_imagen'];
-        //Guarda la imagen en la carpeta images
-        $file = new imgToSave($img);
-        $UrlImg = 'images/'.$img['name'];
-
-        $file->Save($UrlImg);
-        $this->modelAdmin->insertMueble($nombre, $precio, $descuento, $id_categoria, $UrlImg);
+        $this->guardarImagen($img);
+        $this->modelAdmin->insertMueble($nombre, $precio, $descuento, $id_categoria, 'images/'.$img['name']);
     }
 
     function AddCategoria(){
@@ -46,16 +49,25 @@ class TablaAdminController extends TablaController{
         $this->modelAdmin->insertCategoria($cat);
     }
 
+    function EditMueble($id_mueble){
+        $nombre = $_POST['tf_producto'];
+        $precio = $_POST['tf_valor'];
+        $descuento = $_POST['tf_descuento'];
+        $id_categoria = $_POST['tf_categoria'];
+        $img = $_FILES['tf_imagen'];
+        $this->guardarImagen($img);
+        $this->modelAdmin->editMueble($nombre, $precio, $descuento, $id_categoria, 'images/'.$img['name'], $id_mueble);
+    }
+
     function DeleteMueble($id){
         $mueble = $this->model->getProducto($id);
+        $this->modelAdmin->deleteMueble($id);
 
         //no pude encontrar otra forma de hacer andar esto..
         //Eliminar imagen
         foreach ($mueble as $key => $value) {
             unlink(print_r($value->imagen, true));
         }
-
-        $this->modelAdmin->deleteMueble($id);
     }
 
     function DeleteCategoria($id){

@@ -40,7 +40,7 @@
                 <input type="number" name="tf_descuento" placeholder="Descuento" required>
             </li>
             <li>
-                <select name="tf_categoria">
+                <select name="tf_categoria" id="select_categoria">
                     {foreach from=$categorias_s item=categoria}
                         <option value="{$categoria->id}">{$categoria->nombre_cat}</option>
                     {/foreach}
@@ -54,7 +54,7 @@
     </form>
 </div>
 <div id="box_tabla">
-    <table class="tabla_prod">
+    <table class="tabla_prod" id="tabla_productos">
         <caption>Stock</caption>
         <th>Producto</th>
         <th>Valor</th>
@@ -65,19 +65,21 @@
         <tbody>
             {foreach from=$productos_s item=mueble}
                 <tr>
-                    <td>{$mueble->nombre}</td>
-                    <td>{$mueble->precio}</td>
-                    <td>{$mueble->nombre_cat}</td>
-                    <td>{$mueble->descuento}</td>
-                    <td>
-                        <img src="{$mueble->imagen}">
-                    </td>
-                    <td>
-                        <button>Editar</button>
-                        <a href="delete-mueble/{$mueble->id}"><button id="{$mueble->id}" value="eliminar">Eliminar</button></a>
-                    </td>
+                        <td>{$mueble->nombre}</td>
+                        <td>{$mueble->precio}</td>
+                        <td>{$mueble->nombre_cat}</td>
+                        <td>{$mueble->descuento}</td>
+                        <td>
+                            <img src="{$mueble->imagen}">
+                        </td>
+                        <td>
+                            <button type="button" class="btn_editar" id="{$mueble->id}">Editar</button>
+                            <a href="delete-mueble/{$mueble->id}"><button id="{$mueble->id}" value="eliminar">Eliminar</button></a>
+                        </td>
+                    
                 </tr>
             {/foreach}
         </tbody>
     </table>
 </div>
+<script type="text/javascript" src="Javascript/admin_form.js"></script>
